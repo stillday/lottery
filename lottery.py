@@ -1,17 +1,33 @@
 # -*- coding: utf-8 -*-
 import random
+import Tkinter #import von Tkinter
+import tkMessageBox #import vom Message Fenster
 
-def main():
-    print "Welcome to the Lottery numbers generator."
+#öffnen vom Fenster
+window = Tkinter.Tk()
+
+#Text ausgabe
+greeting = Tkinter.Label(window, text="Welcome to the Lottery numbers generator.")
+greeting.pack()
+greeting = Tkinter.Label(window, text="Please enter how many random numbers would you like to have? ")
+greeting.pack()
+
+#Eingabe
+number = Tkinter.Entry(window)
+number.pack()
+
+#definition
+def lottery():
+
     while True:
         rand = []
-        number = int(raw_input("Please enter how many random numbers would you like to have? "))
-        print "Do you want %s" % number
-        print random.sample(range(0, 45), number)
+        lott = random.sample(range(0, 45), int(number.get()))
 
-        new = raw_input("You need more random numbers? Yes/No? ").lower()
-        if new == "no":
-            break
+        #Ausgabe der Zahlen
+        tkMessageBox.showinfo("Zahlen", lott)
 
-if __name__ == "__main__":
-    main()
+#Submit Button
+submit = Tkinter.Button(window, text = "Lottery Number Calculator", command=lottery)
+submit.pack()
+
+window.mainloop()
