@@ -19,12 +19,11 @@ number.pack()
 #definition
 def lottery():
 
-    while True:
-        rand = []
-        lott = random.sample(range(0, 45), int(number.get()))
+    rand = []
+    lott = random.sample(range(0, 45), int(number.get()))
 
-        #Ausgabe der Zahlen
-        tkMessageBox.showinfo("Zahlen", lott)
+    #Ausgabe der Zahlen
+    tkMessageBox.showinfo("Zahlen", lott)
 
 #Submit Button
 submit = Tkinter.Button(window, text = "Lottery Number Calculator", command=lottery)
